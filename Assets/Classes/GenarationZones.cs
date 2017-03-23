@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.IO;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GenarationZones : MonoBehaviour {
     public List<Zona> Zlist = new List<Zona>();
@@ -65,11 +66,11 @@ public class GenarationZones : MonoBehaviour {
             }
 
             Vector3 spawnPosition = new Vector3(position_x, position_y, 0);
-            hazard.layer = 1;
 
             Quaternion spawnRotation = Quaternion.identity;
 
-            Object newobject = Instantiate(hazard, spawnPosition, spawnRotation);
+            GameObject newobject = Instantiate(hazard, spawnPosition, spawnRotation);
+            newobject.name = id+"";
 
             Zona mew_zona = new Zona(id, 999, newobject, name, type, add_var, add_exp, max_suqads, ids, 0);
             Zlist.Add(mew_zona);
